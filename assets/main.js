@@ -75,6 +75,7 @@ let indexImg = 0
 const prev = document.querySelector('#prev')
 const next = document.querySelector('#next')
 
+//premo su freccia indietro
 prev.addEventListener('click', function(){
 
     if (indexImg == 0) {
@@ -90,6 +91,7 @@ prev.addEventListener('click', function(){
     imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
 })
 
+//premo su freccia avanti
 next.addEventListener('click', function(){
 
     if (indexImg == images.length - 1) {
@@ -104,3 +106,20 @@ next.addEventListener('click', function(){
     document.querySelector('.micro.active').classList.remove('active')
     imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
 })
+
+//carosello automatico
+const automatico = setInterval(()=>{
+
+    if (indexImg == images.length - 1) {
+        indexImg = 0
+    }else{
+        indexImg++;
+    }
+
+    document.querySelector('.item.active').classList.remove('active')
+    imgPrinc.getElementsByClassName('item')[indexImg].classList.add('active')
+
+    document.querySelector('.micro.active').classList.remove('active')
+    imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
+
+}, 3000)
