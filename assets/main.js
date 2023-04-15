@@ -62,7 +62,7 @@ images.forEach( (element, index) => {
         `
         
         imgMicro.innerHTML += `
-        <div class="micro">
+        <div class="micro hover">
             <img src='${pref}${image}' alt="">
         </div>
         `
@@ -70,3 +70,37 @@ images.forEach( (element, index) => {
     }
 
 });
+
+let indexImg = 0
+const prev = document.querySelector('#prev')
+const next = document.querySelector('#next')
+
+prev.addEventListener('click', function(){
+
+    if (indexImg == 0) {
+        indexImg = images.length-1
+    }else{
+        indexImg--;
+    }
+
+    document.querySelector('.item.active').classList.remove('active')
+    imgPrinc.getElementsByClassName('item')[indexImg].classList.add('active')
+
+    document.querySelector('.micro.active').classList.remove('active')
+    imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
+})
+
+next.addEventListener('click', function(){
+
+    if (indexImg == images.length - 1) {
+        indexImg = 0
+    }else{
+        indexImg++;
+    }
+
+    document.querySelector('.item.active').classList.remove('active')
+    imgPrinc.getElementsByClassName('item')[indexImg].classList.add('active')
+
+    document.querySelector('.micro.active').classList.remove('active')
+    imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
+})
