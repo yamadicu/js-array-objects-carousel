@@ -28,6 +28,7 @@ let oggetto = images[0]
 const imgPrinc = document.querySelector('.items')
 const imgMicro = document.querySelector('.micro')
 const stop = document.getElementById('stop')
+const start = document.getElementById('start')
 
 images.forEach( (element, index) => {
     
@@ -110,7 +111,7 @@ next.addEventListener('click', function(){
 
 //carosello automatico
 const automatico = setInterval(()=>{
-
+    
     if (indexImg == images.length - 1) {
         indexImg = 0
     }else{
@@ -125,6 +126,29 @@ const automatico = setInterval(()=>{
 
 }, 3000)
 
+//start carosello
+start.addEventListener('click', function () {
+    
+    //carosello automatico
+    const automatico = setInterval(()=>{
+    
+        if (indexImg == images.length - 1) {
+            indexImg = 0
+        }else{
+            indexImg++;
+        }
+    
+        document.querySelector('.item.active').classList.remove('active')
+        imgPrinc.getElementsByClassName('item')[indexImg].classList.add('active')
+    
+        document.querySelector('.micro.active').classList.remove('active')
+        imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
+    
+    }, 3000)
+
+})
+
+//stop carosello
 stop.addEventListener('click', function () {
     clearInterval(automatico)
 })
