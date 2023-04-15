@@ -110,7 +110,7 @@ next.addEventListener('click', function(){
 })
 
 //carosello automatico
-const automatico = setInterval(()=>{
+automatico = setInterval(()=>{
     
     if (indexImg == images.length - 1) {
         indexImg = 0
@@ -130,7 +130,7 @@ const automatico = setInterval(()=>{
 start.addEventListener('click', function () {
     
     //carosello automatico
-    const automatico = setInterval(()=>{
+    automatico = setInterval(()=>{
     
         if (indexImg == images.length - 1) {
             indexImg = 0
