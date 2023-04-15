@@ -22,11 +22,51 @@ const images = [
     }
 ];
 
-const prev = './assets/'
+const pref = './assets/'
 let oggetto = images[0]
 
-document.querySelector('.items').innerHTML += `
-        <div class = "item active">
-            <img src='${prev}${oggetto.image}'
+const imgPrinc = document.querySelector('.items')
+const imgMicro = document.querySelector('.micro')
+
+images.forEach( (element, index) => {
+    
+    const {image, title, text} = element
+
+    if ( index === 0 ) {
+        
+        imgPrinc.innerHTML += `
+        <div class="item relative active">
+            <img src='${pref}${image}' alt='${title}'>
+            <div class="absolute info-image">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
         </div>
-    `
+        `
+        
+        imgMicro.innerHTML += `
+        <div class="micro active">
+            <img src='${pref}${image}' alt="">
+        </div>
+        `
+    }else{
+
+        imgPrinc.innerHTML += `
+        <div class="item relative">
+            <img src='${pref}${image}' alt='${title}'>
+            <div class="absolute info-image">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
+        </div>
+        `
+        
+        imgMicro.innerHTML += `
+        <div class="micro">
+            <img src='${pref}${image}' alt="">
+        </div>
+        `
+
+    }
+
+});
