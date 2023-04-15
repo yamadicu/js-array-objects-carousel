@@ -27,6 +27,7 @@ let oggetto = images[0]
 
 const imgPrinc = document.querySelector('.items')
 const imgMicro = document.querySelector('.micro')
+const stop = document.getElementById('stop')
 
 images.forEach( (element, index) => {
     
@@ -123,3 +124,7 @@ const automatico = setInterval(()=>{
     imgMicro.getElementsByClassName('micro')[indexImg].classList.add('active')
 
 }, 3000)
+
+stop.addEventListener('click', function () {
+    clearInterval(automatico)
+})
